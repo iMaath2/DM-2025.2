@@ -58,7 +58,7 @@ fun LoginPage(modifier: Modifier = Modifier) {
             text = "Bem-vindo/a!",
             fontSize = 24.sp
         )
-        Spacer(modifier = modifier.size(24.dp))
+
         OutlinedTextField(
             value = email,
             label = { Text(text = "Digite seu e-mail") },
@@ -69,7 +69,7 @@ fun LoginPage(modifier: Modifier = Modifier) {
             }
         )
 //
-        Spacer(modifier = modifier.size(24.dp))
+
         OutlinedTextField(
             value = password,
             label = { Text(text = "Digite sua senha") },
@@ -77,7 +77,9 @@ fun LoginPage(modifier: Modifier = Modifier) {
             onValueChange = { password = it },
             visualTransformation = PasswordVisualTransformation()
         )
-        Spacer(modifier = modifier.size(24.dp))
+
+
+
         Row(modifier = modifier) {
             Button( onClick = {
                 Toast.makeText(context, "Login OK!", Toast.LENGTH_LONG).show()
