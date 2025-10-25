@@ -1,6 +1,7 @@
 package com.example.weatherapp
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -49,6 +50,7 @@ class LoginActivity : ComponentActivity() {
 fun LoginPage(modifier: Modifier = Modifier) {
     var email by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
+
    // val activity = LocalActivity.current as Activity
     val context = LocalContext.current
     Column(
@@ -83,7 +85,14 @@ fun LoginPage(modifier: Modifier = Modifier) {
         Row(modifier = modifier) {
             Button( onClick = {
                 Toast.makeText(context, "Login OK!", Toast.LENGTH_LONG).show()
-            } ) {
+
+                val activity = context as? Activity
+                activity?.startActivity(
+                    Intent(activity, MainActivity::class.java)
+                        .setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                )
+            }
+            ) {
                 Text("Login")
             }
             Button(
